@@ -1,0 +1,10 @@
+﻿services:
+  - type: web
+    name: quarterly-summarizer
+    env: python
+    plan: free
+    buildCommand: pip install -r requirements.txt
+    startCommand: uvicorn main:app --host 0.0.0.0 --port 10000
+    envVars:
+      - key: GROQ_API_KEY
+        sync: false
